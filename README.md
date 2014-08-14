@@ -5,7 +5,14 @@ A website for practicing essential music theory skills
 
 
 
+
+
+
 Credit is deserved by the howlerjs library, used under this license:
+
+
+
+
 
 
 Copyright (c) 2013-2014 James Simpson and GoldFire Studios, Inc.
