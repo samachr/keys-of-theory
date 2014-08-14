@@ -12,11 +12,8 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 
 var accidentalsModifier = 0;
 
-for (i = 0; i<23;i++) {
-var sound = new Howl({
-  urls: ['sound/key' + i + '.wav']
-  })
-}
+var soundsArray = [];
+for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']})}
 
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
@@ -254,17 +251,14 @@ function showKeyPress(keyThatWasPressed){
     theKey.innerHTML = "<br><br><br><br><br>" + noteLettersB[keyThatWasPressed];
 
     theKey.style.background = "gray";
+
+    soundsArray[keyThatWasPressed].play();
+    
     if (isWhite(keyThatWasPressed)) {
     setTimeout(function(){clearAnimation(keyThatWasPressed,"white");}, 2000);
     } else { //it is black
       setTimeout(function(){clearAnimation(keyThatWasPressed,"black");}, 2000);
     }
 
-
-  document.getElementById("clickshower").innerHTML = "You clicked on the " + keyThatWasPressed + " key!";
-  var sound = new Howl({
-    urls: ['sound/key' + keyThatWasPressed + '.wav']
-    }).play();
-  document.getElementById("key"+keyThatWasPressed).style.background = "gray";
-
+    document.getElementById("clickshower").innerHTML = "You clicked on the " + keyThatWasPressed + " key!";
 }
