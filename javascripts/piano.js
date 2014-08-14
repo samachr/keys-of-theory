@@ -12,6 +12,12 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 
 var accidentalsModifier = 0;
 
+for (i = 0; i<23;i++) {
+var sound = new Howl({
+  urls: ['sound/key' + i + '.wav']
+  })
+}
+
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
     case 83: //they pressed s. So it is sharp
