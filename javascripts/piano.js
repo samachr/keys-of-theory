@@ -13,7 +13,11 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 var accidentalsModifier = 0;
 
 var soundsArray = [];
-for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']})}
+for (i = 0; i<23;i++) {
+  soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']})
+  document.getElementById("clickshower").innerHTML = "loading...[" + i + " of 23]"
+}
+document.getElementById("clickshower").innerHTML = "Touch a key!"
 
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
