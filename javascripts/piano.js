@@ -13,7 +13,7 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 var accidentalsModifier = 0;
 
 var soundsArray = [];
-for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']})}
+for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
@@ -253,7 +253,7 @@ function showKeyPress(keyThatWasPressed){
     theKey.style.background = "gray";
 
     soundsArray[keyThatWasPressed].play();
-    
+
     if (isWhite(keyThatWasPressed)) {
     setTimeout(function(){clearAnimation(keyThatWasPressed,"white");}, 2000);
     } else { //it is black
