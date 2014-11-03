@@ -25,6 +25,7 @@ for (i = 0; i<23;i++) {
   document.write("<audio id=\"key" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
 
   soundsArray[i] = document.getElementById("key"+i);
+  document.getElementById("clickshower").innerHTML = "loading...[" + i + " of 23]"
   }
 
 document.addEventListener('keydown', function(event) {
