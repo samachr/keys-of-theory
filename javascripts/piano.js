@@ -1,3 +1,8 @@
+// var aud = document.getElementById("myVideo");
+// aud.oncanplay = function() {
+//     alert("Can start playing video");
+// };
+
 var currentKey = 0;
 var playByNum = true;
 var majorScalePattern = [0,2,4,5,7,9,11];
@@ -13,7 +18,14 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 var accidentalsModifier = 0;
 
 var soundsArray = [];
-for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
+//for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
+
+for (i = 0; i<23;i++) {
+
+  document.write("<audio id=\"key" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
+
+  soundsArray[i] = document.getElementById("key"+i);
+  }
 
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
