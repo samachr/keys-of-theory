@@ -21,18 +21,19 @@ var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
 function newLoadFunctionFunction(i) {
-return function() { console.log("key " + i + " is loaded");
-                    document.getElementById("clickshower").innerHTML += " " + i}
+return function() { //console.log("key " + i + " is loaded");
+                    document.getElementById("clickshower").innerHTML += ". "}
 }
 function newFunctionStartHover(i) {
-return function() { console.log("Mouse entered key " + i); document.getElementById("key"+i).style.background = "Blue";};
+return function() { //console.log("Mouse entered key " + i);
+document.getElementById("key"+i).style.background = "Blue";};
 }
 function newFunctionUndoHover(i) {
-return function() { console.log("Mouse left key " + i);
+return function() { //console.log("Mouse left key " + i);
 document.getElementById("key"+i).style.background = (document.getElementById("key" + i).className === "whiteKey") ? "white" : "black"};
 }
 function newKeyBoardFunction(i) {
-return function() { showKeyPress(i); console.log("Key pressed " + i);}
+return function() { showKeyPress(i);}
 }
 
 for (i = 0; i<24;i++) {
@@ -232,11 +233,11 @@ function showKeyPress(keyThatWasPressed){
     soundsArray[keyThatWasPressed].play();
 
     if (isWhite(keyThatWasPressed)) {
-      console.log("it was white");
+      //console.log("it was white");
       setTimeout(function(){clearAnimation(keyThatWasPressed,"white");}, 2000);
     } else { //it is black
       setTimeout(function(){clearAnimation(keyThatWasPressed,"black");}, 2000);
     }
 
-    document.getElementById("clickshower").innerHTML = "You clicked on the " + keyThatWasPressed + " key!";
+    //document.getElementById("clickshower").innerHTML = "You clicked on the " + keyThatWasPressed + " key!";
 }
