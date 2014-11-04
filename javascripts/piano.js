@@ -37,7 +37,7 @@ return function() { showKeyPress(i); console.log("Key pressed " + i);}
 
 for (i = 0; i<24;i++) {
 
-  document.write("<audio preload=\"auto\" id=\"keySound" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
+  document.write("<audio preload=\"auto\" id=\"keySound" + i + "\"><source src=\"sound/key" + i + ".ogg\" type=\"audio/ogg\"></audio>");
   //console.log("Loading audio " + i);
 
   document.getElementById("keySound"+i).oncanplay = newLoadFunctionFunction(i);
