@@ -20,13 +20,40 @@ var accidentalsModifier = 0;
 var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
-for (i = 0; i<23;i++) {
+for (i = 0; i<24;i++) {
 
-  document.write("<audio id=\"key" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
+  document.write("<audio preload=\"auto\" id=\"keySound" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
+  //console.log("Loading audio " + i);
 
-  soundsArray[i] = document.getElementById("key"+i);
-  document.getElementById("clickshower").innerHTML = "loading...[" + i + " of 23]"
+  document.getElementById("keySound"+i).oncanplay = function() {
+       console.log("key " + i + " is loaded");
+  };
+
+  soundsArray[i] = document.getElementById("keySound"+i);
+}
+
+function newFunctionStartHover(i) {
+return function() { console.log("Mouse entered key " + i); document.getElementById("key"+i).style.background = "Blue";};
+}
+function newFunctionUndoHover(i) {
+return function() { console.log("Mouse left key " + i);
+document.getElementById("key"+i).style.background = (document.getElementById("key" + i).className === "whiteKey") ? "white" : "black"};
+}
+function newKeyBoardFunction(i) {
+return function() { showKeyPress(i); console.log("Key pressed " + i);}
+}
+
+function prepareHover () {
+  console.log("Preparing the hovering functionality");
+  for (i = 0; i<24;i++) {
+    console.log("adding hover for " + i);
+    temp = document.getElementById("key"+i);
+
+    temp.onmouseover = newFunctionStartHover(i);
+    temp.onmouseout = newFunctionUndoHover(i);
+    temp.onclick = newKeyBoardFunction(i);
   }
+}
 
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
@@ -118,7 +145,10 @@ switch (event.keyCode) {
     }
   }
 
-  if (note + accidentalsModifier === -1 | note > 23) {} else{
+  if (note + accidentalsModifier === -1 | note > 23) {
+
+  }
+    else {
     if (note < currentKey) {
       note += 12;
     }
@@ -135,6 +165,7 @@ function isWhite(keyNum) {
     }
   return false;
 }
+
 function isBlack(keyNum) {
   for (i=0;i<blackKeyList.length;i++) {
       if (keyNum === blackKeyList[i]) {
@@ -143,6 +174,7 @@ function isBlack(keyNum) {
     }
   return false;
 }
+
 function isSharp(keyNum) {
   for (i=0;i<sharpKeys.length;i++) {
       if (keyNum === sharpKeys[i]) {
@@ -157,7 +189,7 @@ function changeKey() {
   document.getElementById("keyChooser").blur();
   //document.getElementById("key" + document.getElementById("keyChooser").selectedIndex).disabled=true;
   //for (num in whiteKeyList) {
-//    document.getElementById("key" + num).innerHTML = "<br><br><br><br><br>" + num;
+  //    document.getElementById("key" + num).innerHTML = "<br><br><br><br><br>" + num;
   //}
 }
 
@@ -171,80 +203,6 @@ function showKeyLetters() {
   //   document.getElementById("key" + i).innerHTML = ""
   // }
 }
-
-function pianoKeyPressC() {
-  showKeyPress(0);
-}
-function pianoKeyPressDb() {
-  showKeyPress(1);
-}
-function pianoKeyPressD() {
-  showKeyPress(2);
-}
-function pianoKeyPressEb() {
-  showKeyPress(3);
-}
-function pianoKeyPressE() {
-  showKeyPress(4);
-}
-function pianoKeyPressF() {
-  showKeyPress(5);
-}
-function pianoKeyPressGb() {
-  showKeyPress(6);
-}
-function pianoKeyPressG() {
-  showKeyPress(7);
-}
-function pianoKeyPressAb() {
-  showKeyPress(8);
-}
-function pianoKeyPressA() {
-  showKeyPress(9);
-}
-function pianoKeyPressBb() {
-  showKeyPress(10);
-}
-function pianoKeyPressB() {
-  showKeyPress(11);
-}
-function pianoKeyPressC2() {
-  showKeyPress(12);
-}
-function pianoKeyPressDb2() {
-  showKeyPress(13);
-}
-function pianoKeyPressD2() {
-  showKeyPress(14);
-}
-function pianoKeyPressEb2() {
-  showKeyPress(15);
-}
-function pianoKeyPressE2() {
-  showKeyPress(16);
-}
-function pianoKeyPressF2() {
-  showKeyPress(17);
-}
-function pianoKeyPressGb2() {
-  showKeyPress(18);
-}
-function pianoKeyPressG2() {
-  showKeyPress(19);
-}
-function pianoKeyPressAb2() {
-  showKeyPress(20);
-}
-function pianoKeyPressA2() {
-  showKeyPress(21);
-}
-function pianoKeyPressBb2() {
-  showKeyPress(22);
-}
-function pianoKeyPressB2() {
-  showKeyPress(23);
-}
-
 
 function clearAnimation(keyPressed, color) {
   keyDOMRef = document.getElementById("key"+keyPressed);
@@ -264,11 +222,13 @@ function showKeyPress(keyThatWasPressed){
     theKey.innerHTML = "<br><br><br><br><br>" + noteLettersB[keyThatWasPressed];
 
     theKey.style.background = "gray";
-
+    //console.log("playing key " + keyThatWasPressed);
+    soundsArray[keyThatWasPressed].currentTime = 0
     soundsArray[keyThatWasPressed].play();
 
     if (isWhite(keyThatWasPressed)) {
-    setTimeout(function(){clearAnimation(keyThatWasPressed,"white");}, 2000);
+      console.log("it was white");
+      setTimeout(function(){clearAnimation(keyThatWasPressed,"white");}, 2000);
     } else { //it is black
       setTimeout(function(){clearAnimation(keyThatWasPressed,"black");}, 2000);
     }

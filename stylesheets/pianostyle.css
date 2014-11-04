@@ -38,28 +38,28 @@ body{
   border-radius: 2px;
 }
 
-#key1  {position: absolute;left: 013px;} #key1:hover{background-color:blue;}
-#key3  {position: absolute;left: 033px;} #key3:hover{background-color:blue;}
-#key6  {position: absolute;left: 073px;} #key6:hover{background-color:blue;}
-#key8  {position: absolute;left: 093px;} #key8:hover{background-color:blue;}
-#key10 {position: absolute;left: 113px;} #key10:hover{background-color:blue;}
-#key13 {position: absolute;left: 153px;} #key13:hover{background-color:blue;}
-#key15 {position: absolute;left: 173px;} #key15:hover{background-color:blue;}
-#key18 {position: absolute;left: 213px;} #key18:hover{background-color:blue;}
-#key20 {position: absolute;left: 233px;} #key20:hover{background-color:blue;}
-#key22 {position: absolute;left: 253px;} #key22:hover{background-color:blue;}
+#key1  {position: absolute;left: 013px;}
+#key3  {position: absolute;left: 033px;}
+#key6  {position: absolute;left: 073px;}
+#key8  {position: absolute;left: 093px;}
+#key10 {position: absolute;left: 113px;}
+#key13 {position: absolute;left: 153px;}
+#key15 {position: absolute;left: 173px;}
+#key18 {position: absolute;left: 213px;}
+#key20 {position: absolute;left: 233px;}
+#key22 {position: absolute;left: 253px;}
 
-#key0   {position: absolute;left: 001px;} #key0:hover{background-color:blue;}
-#key2   {position: absolute;left: 021px;} #key2:hover{background-color:blue;}
-#key4   {position: absolute;left: 041px;} #key4:hover{background-color:blue;}
-#key5   {position: absolute;left: 061px;} #key5:hover{background-color:blue;}
-#key7   {position: absolute;left: 081px;} #key7:hover{background-color:blue;}
-#key9   {position: absolute;left: 101px;} #key9:hover{background-color:blue;}
-#key11  {position: absolute;left: 121px;} #key11:hover{background-color:blue;}
-#key12  {position: absolute;left: 141px;} #key12:hover{background-color:blue;}
-#key14  {position: absolute;left: 161px;} #key14:hover{background-color:blue;}
-#key16  {position: absolute;left: 181px;} #key16:hover{background-color:blue;}
-#key17  {position: absolute;left: 201px;} #key17:hover{background-color:blue;}
-#key19  {position: absolute;left: 221px;} #key19:hover{background-color:blue;}
-#key21  {position: absolute;left: 241px;} #key21:hover{background-color:blue;}
-#key23  {position: absolute;left: 261px;} #key23:hover{background-color:blue;}
+#key0   {position: absolute;left: 001px;}
+#key2   {position: absolute;left: 021px;}
+#key4   {position: absolute;left: 041px;}
+#key5   {position: absolute;left: 061px;}
+#key7   {position: absolute;left: 081px;}
+#key9   {position: absolute;left: 101px;}
+#key11  {position: absolute;left: 121px;}
+#key12  {position: absolute;left: 141px;}
+#key14  {position: absolute;left: 161px;}
+#key16  {position: absolute;left: 181px;}
+#key17  {position: absolute;left: 201px;}
+#key19  {position: absolute;left: 221px;}
+#key21  {position: absolute;left: 241px;}
+#key23  {position: absolute;left: 261px;}
