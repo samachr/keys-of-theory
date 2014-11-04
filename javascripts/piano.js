@@ -14,6 +14,7 @@ var noteLettersB = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B","C","Db
 var sharpKeys    = [2,4,6,7,9,11];
 var flatKeys     = [0,1,3,5,8,10];
 var noteNames    = ["C","D","E","F","G","A","B"];
+var allDone = false;
 
 var accidentalsModifier = 0;
 
@@ -22,7 +23,9 @@ var soundsArray = [];
 
 function newLoadFunctionFunction(i) {
 return function() { //console.log("key " + i + " is loaded");
-                    document.getElementById("clickshower").innerHTML += ". "}
+  document.getElementById("clickshower").innerHTML += ". ";
+  document.getElementById("keySound"+i).oncanplay = "";
+};
 }
 function newFunctionStartHover(i) {
 return function() { //console.log("Mouse entered key " + i);
