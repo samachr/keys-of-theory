@@ -21,7 +21,8 @@ var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
 function newLoadFunctionFunction(i) {
-return function() { console.log("key " + i + " is loaded");}
+return function() { console.log("key " + i + " is loaded");
+                    document.getElementById("clickshower").innerHTML += " " + i}
 }
 function newFunctionStartHover(i) {
 return function() { console.log("Mouse entered key " + i); document.getElementById("key"+i).style.background = "Blue";};
