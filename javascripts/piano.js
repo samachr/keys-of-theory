@@ -57,18 +57,18 @@ function prepareHover () {
   }
 }
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keyup', function(event) {
   switch (event.keyCode) {
-    case 83: //they pressed s. So it is sharp
-      accidentalsModifier = 1;
+    case 83: //they released s. So it is sharp
+      accidentalsModifier = 0;
       break;
-    case 87: //they pressed w. So it is flat
-      accidentalsModifier = -1;
+    case 87: //they released w. So it is flat
+      accidentalsModifier = 0;
       break;
   }
 });
 
-document.addEventListener('keyup', function(event) {
+document.addEventListener('keydown', function(event) {
   var note = -1
 switch (event.keyCode) {
   case 67:
@@ -93,10 +93,12 @@ switch (event.keyCode) {
       note = 11;
       break;
   case 83:
-    accidentalsModifier = 0;
+    accidentalsModifier = 1;
+    return;
     break;
   case 87:
-    accidentalsModifier = 0;
+    accidentalsModifier = -1;
+    return;
     break;
   }
 
