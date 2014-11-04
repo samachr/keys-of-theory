@@ -20,18 +20,9 @@ var accidentalsModifier = 0;
 var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
-for (i = 0; i<24;i++) {
-
-  document.write("<audio preload=\"auto\" id=\"keySound" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
-  //console.log("Loading audio " + i);
-
-  document.getElementById("keySound"+i).oncanplay = function() {
-       console.log("key " + i + " is loaded");
-  };
-
-  soundsArray[i] = document.getElementById("keySound"+i);
+function newLoadFunctionFunction(i) {
+return function() { console.log("key " + i + " is loaded");}
 }
-
 function newFunctionStartHover(i) {
 return function() { console.log("Mouse entered key " + i); document.getElementById("key"+i).style.background = "Blue";};
 }
@@ -43,10 +34,21 @@ function newKeyBoardFunction(i) {
 return function() { showKeyPress(i); console.log("Key pressed " + i);}
 }
 
+for (i = 0; i<24;i++) {
+
+  document.write("<audio preload=\"auto\" id=\"keySound" + i + "\"><source src=\"sound/key" + i + ".wav\" type=\"audio/wav\"></audio>");
+  //console.log("Loading audio " + i);
+
+  document.getElementById("keySound"+i).oncanplay = newLoadFunctionFunction(i);
+
+  soundsArray[i] = document.getElementById("keySound"+i);
+}
+
+
 function prepareHover () {
-  console.log("Preparing the hovering functionality");
+  //console.log("Preparing the hovering functionality");
   for (i = 0; i<24;i++) {
-    console.log("adding hover for " + i);
+    //console.log("adding hover for " + i);
     temp = document.getElementById("key"+i);
 
     temp.onmouseover = newFunctionStartHover(i);
