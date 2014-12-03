@@ -21,6 +21,47 @@ var accidentalsModifier = 0;
 var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
 
+function numToNameinKey(key, num) {
+  return ((isSharp(key)) ? noteLettersS[key + majorScalePattern[num-1]] : noteLettersB[key + majorScalePattern[num-1]]);
+}
+
+function numToKeyboardinKey(key, num) {
+  return key + majorScalePattern[num-1];
+}
+
+function nameToNuminKey(key, name) {
+  for (i = 0; i < 12; i++) {
+    if (noteLettersS[i] == name) {
+      for (scaleI = 0; scaleI < 7; scaleI++) {
+        if (key + majorScalePattern[scaleI] == i) {
+          return scaleI + 1;
+        }
+      }
+    }
+    if (noteLettersS[i] == name) {
+      for (scaleI = 0; scaleI < 7; scaleI++) {
+        if (key + majorScalePattern[scaleI] == i) {
+          return scaleI + 1;
+        }
+      }
+    }
+  }
+}
+
+function keyboardToNuminKey(key, keyNum) {
+  for (scaleI = 0; scaleI < 7; scaleI++) {
+    if ((key + majorScalePattern[scaleI])%12 == keyNum%12) {
+      return scaleI + 1;
+    }
+  }
+  for (scaleI = 0; scaleI < 7; scaleI++) {
+    if ((key + majorScalePattern[scaleI])%12 == keyNum%12) {
+      return scaleI + 1;
+    }
+  }
+  return "not in the key";
+}
+
 function newLoadFunctionFunction(i) {
 return function() { //console.log("key " + i + " is loaded");
   document.getElementById("clickshower").innerHTML += ". ";
@@ -65,9 +106,9 @@ function prepareHover () {
 document.addEventListener('keyup', function(event) {
   switch (event.keyCode) {
     case 83: //they released s. So it is sharp
-      accidentalsModifier = 0;
-      break;
+    case 38:
     case 87: //they released w. So it is flat
+    case 40:
       accidentalsModifier = 0;
       break;
   }
@@ -98,10 +139,12 @@ switch (event.keyCode) {
       note = 11;
       break;
   case 83:
+  case 38:
     accidentalsModifier = 1;
     return;
     break;
   case 87:
+  case 40:
     accidentalsModifier = -1;
     return;
     break;
@@ -219,10 +262,21 @@ function clearAnimation(keyPressed, color) {
   keyDOMRef.innerHTML = "";
   }
 
+
+//document.getElementById("clickshower").innerHTML = "You clicked on the " + keyThatWasPressed + " key!";
+function checkCorrect(keyThatWasPressed) {
+  if (numToKeyboardinKey(currentKey, document.getElementById("currentQuery").innerHTML) == keyThatWasPressed) {
+    document.getElementById("clickshower").innerHTML = "You Got it!";
+    document.getElementById("currentQuery").innerHTML = Math.floor((Math.random() * 7) + 1);
+  } else {
+    document.getElementById("clickshower").innerHTML = "Nope, Try again.";
+  }
+}
+
 function showKeyPress(keyThatWasPressed){
 
     theKey = document.getElementById("key"+keyThatWasPressed);
-
+    checkCorrect(keyThatWasPressed);
     if (isSharp(currentKey)) {
       theKey.innerHTML = "<br><br><br><br><br>" + noteLettersS[keyThatWasPressed];
     } else {
