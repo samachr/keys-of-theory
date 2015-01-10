@@ -6,21 +6,13 @@
 </head>
 <link rel="stylesheet" href="app.css">
 
-<body ng-controller="pianoController">
+<body ng-controller="pianoController" ng-init="getAudio()">
 <div class="container">
 
 <div id="pianobox">
   <div ng-repeat="key in whiteKeyList" class="white-key piano-key" id="key{{key}}" ng-click="play(key)"></div>
   <div ng-repeat="key in blackKeyList" class="black-key piano-key" id="key{{key}}" ng-click="play(key)"></div>
 </div>
-
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: {{keyloadedpercent}}%">
-
-  </div>
-</div>
-  <pre>{{keyloadedpercent}}</pre>
-
 
 <script src = "app.js"></script>
 
