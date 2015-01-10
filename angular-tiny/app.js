@@ -17,3 +17,4 @@ $scope.play = function(key) {
   console.log("playing key" + key);
   $scope.keysounds[key].play();
 };
+}
