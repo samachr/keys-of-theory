@@ -71,7 +71,6 @@ return function() { //console.log("key " + i + " is loaded");
 function newFunctionStartHover(i) {
 return function() { //console.log("Mouse entered key " + i);
 document.getElementById("key"+i).style.background = "Blue";};
-}
 function newFunctionUndoHover(i) {
 return function() { //console.log("Mouse left key " + i);
 document.getElementById("key"+i).style.background = (document.getElementById("key" + i).className === "whiteKey") ? "white" : "black"};
@@ -286,7 +285,7 @@ function showKeyPress(keyThatWasPressed){
 
     theKey.style.background = "gray";
     //console.log("playing key " + keyThatWasPressed);
-    soundsArray[keyThatWasPressed].currentTime = 0
+    soundsArray[keyThatWasPressed].currentTime = 0;
     soundsArray[keyThatWasPressed].play();
 
     if (isWhite(keyThatWasPressed)) {

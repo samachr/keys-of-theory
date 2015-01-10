@@ -15,6 +15,7 @@ $scope.getAudio = function () {
 
 $scope.play = function(key) {
   console.log("playing key" + key);
+  $scope.keysounds[key].currentTime = 0;
   $scope.keysounds[key].play();
 };
 }
