@@ -1,0 +1,71 @@
+#pianobox{
+  /*-webkit-transform: scale(2,2);
+  transform: scale(2,2);*/
+  position: relative;
+  background-color: black;
+  border-top-color: red;
+  border-top-style: solid;
+  border-top-width: 2px;
+  width:  281px;
+  height: 122px;
+}
+
+.piano-key:hover {
+  background:#3465a4;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  /*height: 70px;*/
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+}
+
+.black-key{
+  top:      0;
+  width:    15px;
+  height:   70px;
+  z-index:  2;
+  background-color: black;
+  text-align: center;
+  border-left-width: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 10px;
+  color: white;
+}
+
+.white-key{
+  top: 0;
+  width: 19px;
+  height: 120px;
+  z-index: 1;
+  background-color: white;
+  text-align: center;
+  border-radius: 2px;
+}
+
+#key1  {position: absolute;left: 013px;}
+#key3  {position: absolute;left: 033px;}
+#key6  {position: absolute;left: 073px;}
+#key8  {position: absolute;left: 093px;}
+#key10 {position: absolute;left: 113px;}
+#key13 {position: absolute;left: 153px;}
+#key15 {position: absolute;left: 173px;}
+#key18 {position: absolute;left: 213px;}
+#key20 {position: absolute;left: 233px;}
+#key22 {position: absolute;left: 253px;}
+
+#key0   {position: absolute;left: 001px;}
+#key2   {position: absolute;left: 021px;}
+#key4   {position: absolute;left: 041px;}
+#key5   {position: absolute;left: 061px;}
+#key7   {position: absolute;left: 081px;}
+#key9   {position: absolute;left: 101px;}
+#key11  {position: absolute;left: 121px;}
+#key12  {position: absolute;left: 141px;}
+#key14  {position: absolute;left: 161px;}
+#key16  {position: absolute;left: 181px;}
+#key17  {position: absolute;left: 201px;}
+#key19  {position: absolute;left: 221px;}
+#key21  {position: absolute;left: 241px;}
+#key23  {position: absolute;left: 261px;}
