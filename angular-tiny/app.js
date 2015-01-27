@@ -5,13 +5,15 @@ $scope.blackKeyList = [1,3,6,8,10,13,15,18,20,22];
 $scope.keysounds = [];
 
 function playKey(event, i) {
-	alert("routing touch event for key play " + i);
+	//alert("routing touch event for key play " + i);
 	return function() {play(i)};
 }
 
+$scope.setupTouch = function() {
 for (var i=0; i < 24; i++) {
 	document.getElementById('key' + i).addEventListener('touchstart', playKey(event, i));
 }
+};
 
 function isWhite(keyNum) {
   for (var i=0; i<$scope.whiteKeyList.length; i++) {
@@ -46,7 +48,6 @@ $scope.play = function(key) {
 function clearAnimation(keyPressed, color) {
   keyDOMRef = document.getElementById("key"+keyPressed);
   keyDOMRef.style.background = color;
-  keyDOMRef.innerHTML = "";
 }
 
 }

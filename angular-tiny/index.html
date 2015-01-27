@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 </head>
-<meta name="viewport" content="width=320, initial-scale=9">
+<meta name="viewport" content="width=320, initial-scale=9, user-scalable:no, maximum-scale:9, minimum-scale:9">
 <link rel="stylesheet" href="app.css">
 
 <body ng-controller="pianoController" ng-init="getAudio()">
@@ -14,6 +14,8 @@
   <div ng-repeat="key in whiteKeyList" class="white-key piano-key" id="key{{key}}" ng-click="play(key)"></div>
   <div ng-repeat="key in blackKeyList" class="black-key piano-key" id="key{{key}}" ng-click="play(key)"></div>
 </div>
+
+<button ng-click="setupTouch()">Testing Multitouch</button>
 
 <script src = "app.js"></script>
 
