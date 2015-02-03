@@ -1,8 +1,3 @@
-// var aud = document.getElementById("myVideo");
-// aud.oncanplay = function() {
-//     alert("Can start playing video");
-// };
-
 var currentKey = 0;
 var playByNum = true;
 var majorScalePattern = [0,2,4,5,7,9,11];
@@ -17,6 +12,20 @@ var noteNames    = ["C","D","E","F","G","A","B"];
 var allDone = false;
 
 var accidentalsModifier = 0;
+
+
+function prepareHover () {
+  //console.log("Preparing the hovering functionality");
+  for (i = 0; i<24;i++) {
+    //console.log("adding hover for " + i);
+    temp = document.getElementById("key"+i);
+
+    temp.onmouseover = newFunctionStartHover(i);
+    temp.onmouseout = newFunctionUndoHover(i);
+    temp.onclick = newKeyBoardFunction(i);
+  }
+}
+
 
 var soundsArray = [];
 //for (i = 0; i<23;i++) {soundsArray[i] = new Howl({urls: ['sound/key' + i + '.wav']});}
@@ -63,18 +72,20 @@ function keyboardToNuminKey(key, keyNum) {
 }
 
 function newLoadFunctionFunction(i) {
-return function() { //console.log("key " + i + " is loaded");
+return function() { console.log("key " + i + " is loaded");
   document.getElementById("clickshower").innerHTML += ". ";
   document.getElementById("keySound"+i).oncanplay = "";
 };
 }
 function newFunctionStartHover(i) {
-return function() { //console.log("Mouse entered key " + i);
+return function() { console.log("Mouse entered key " + i);
 document.getElementById("key"+i).style.background = "Blue";};
+}
 function newFunctionUndoHover(i) {
-return function() { //console.log("Mouse left key " + i);
+return function() { console.log("Mouse left key " + i);
 document.getElementById("key"+i).style.background = (document.getElementById("key" + i).className === "whiteKey") ? "white" : "black"};
 }
+
 function newKeyBoardFunction(i) {
 return function() { showKeyPress(i);}
 }
@@ -87,19 +98,6 @@ for (i = 0; i<24;i++) {
   document.getElementById("keySound"+i).oncanplay = newLoadFunctionFunction(i);
 
   soundsArray[i] = document.getElementById("keySound"+i);
-}
-
-
-function prepareHover () {
-  //console.log("Preparing the hovering functionality");
-  for (i = 0; i<24;i++) {
-    //console.log("adding hover for " + i);
-    temp = document.getElementById("key"+i);
-
-    temp.onmouseover = newFunctionStartHover(i);
-    temp.onmouseout = newFunctionUndoHover(i);
-    temp.onclick = newKeyBoardFunction(i);
-  }
 }
 
 document.addEventListener('keyup', function(event) {
