@@ -1,15 +1,18 @@
-#pianobox{
+#pianobox {
   /*-webkit-transform: scale(2,2);
   transform: scale(2,2);*/
   position: relative;
   background-color: black;
   border-top-color: red;
   border-top-style: solid;
-  border-top-width: 2px;
-  width:  281px;
-  height: 123px;
+  border-top-width: 3px;
+  width: 563px;
+  height: 246px;
+  box-shadow: 5px 5px 10px black;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
-
 .piano-key:hover {
   /*background:#3465a4;*/
   border-style: solid;
@@ -19,53 +22,126 @@
   -webkit-border-radius: 2px 2px 2px 2px;
   border-radius: 2px 2px 2px 2px;
 }
-
-.black-key{
-  top:      0;
-  width:    15px;
-  height:   70px;
-  z-index:  2;
+.black-key {
+  top: 0;
+  width: 30px;
+  height: 140px;
+  padding-top:100px;
+  z-index: 2;
+  color: black;
   background-color: black;
   text-align: center;
   border-left-width: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  border: 1px solid black;
   font-size: 10px;
-  color: white;
 }
-
-.white-key{
+.white-key {
+  border: 1px solid white;
   top: 0;
-  width: 19px;
-  height: 120px;
+  width: 38px;
+  height: 241px;
+  padding-top:200px;
   z-index: 1;
   background-color: white;
+  color: white;
   text-align: center;
   border-radius: 2px;
 }
-
-#key1  {position: absolute;left: 013px;}
-#key3  {position: absolute;left: 033px;}
-#key6  {position: absolute;left: 073px;}
-#key8  {position: absolute;left: 093px;}
-#key10 {position: absolute;left: 113px;}
-#key13 {position: absolute;left: 153px;}
-#key15 {position: absolute;left: 173px;}
-#key18 {position: absolute;left: 213px;}
-#key20 {position: absolute;left: 233px;}
-#key22 {position: absolute;left: 253px;}
-
-#key0   {position: absolute;left: 001px;}
-#key2   {position: absolute;left: 021px;}
-#key4   {position: absolute;left: 041px;}
-#key5   {position: absolute;left: 061px;}
-#key7   {position: absolute;left: 081px;}
-#key9   {position: absolute;left: 101px;}
-#key11  {position: absolute;left: 121px;}
-#key12  {position: absolute;left: 141px;}
-#key14  {position: absolute;left: 161px;}
-#key16  {position: absolute;left: 181px;}
-#key17  {position: absolute;left: 201px;}
-#key19  {position: absolute;left: 221px;}
-#key21  {position: absolute;left: 241px;}
-#key23  {position: absolute;left: 261px;}
+#key1 {
+  position: absolute;
+  left: 026px;
+}
+#key3 {
+  position: absolute;
+  left: 066px;
+}
+#key6 {
+  position: absolute;
+  left: 146px;
+}
+#key8 {
+  position: absolute;
+  left: 186px;
+}
+#key10 {
+  position: absolute;
+  left: 226px;
+}
+#key13 {
+  position: absolute;
+  left: 306px;
+}
+#key15 {
+  position: absolute;
+  left: 346px;
+}
+#key18 {
+  position: absolute;
+  left: 426px;
+}
+#key20 {
+  position: absolute;
+  left: 466px;
+}
+#key22 {
+  position: absolute;
+  left: 506px;
+}
+#key0 {
+  position: absolute;
+  left: 002px;
+}
+#key2 {
+  position: absolute;
+  left: 042px;
+}
+#key4 {
+  position: absolute;
+  left: 082px;
+}
+#key5 {
+  position: absolute;
+  left: 122px;
+}
+#key7 {
+  position: absolute;
+  left: 162px;
+}
+#key9 {
+  position: absolute;
+  left: 202px;
+}
+#key11 {
+  position: absolute;
+  left: 242px;
+}
+#key12 {
+  position: absolute;
+  left: 282px;
+}
+#key14 {
+  position: absolute;
+  left: 322px;
+}
+#key16 {
+  position: absolute;
+  left: 362px;
+}
+#key17 {
+  position: absolute;
+  left: 402px;
+}
+#key19 {
+  position: absolute;
+  left: 442px;
+}
+#key21 {
+  position: absolute;
+  left: 482px;
+}
+#key23 {
+  position: absolute;
+  left: 522px;
+}
